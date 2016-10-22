@@ -1,14 +1,21 @@
 (function (){
   'use strict';
 
-  angular.module('Assignment1', [])
-  .controller('DishesController', DishesController);
-  DishesController.$inject = ['$scope'];
+  angular.module('LunchCheck', [])
+  .controller('LunchCheckController', LunchCheckController);
+  LunchCheckController.$inject = ['$scope'];
 
-  function DishesController($scope){
+  function LunchCheckController($scope){
       $scope.dishes = "";
-      $scope.test = "1231";
+      $scope.message = "";
+      $scope.split = function(){
+        var arrayOfDishes = $scope.dishes.split(",");
+        if (arrayOfDishes.length <= 3)
+          $scope.message = "Enjoy!";
+        else 
+          $scope.message = "Too Much!";
+      }    
   }
-
+  
 
 })();
